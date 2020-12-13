@@ -2,6 +2,12 @@
 ## Author: Peashooter
 ## Version: 1.00
 ## Title: Peashooter's Class Macros
+
+
+## X-Category: Class
+## X-License: MIT License
+## X-Website: https://github.com/oneCof5/PeaMacros
+## X-Curse-Project-ID: 428079
 ## DefaultState: enabled
 
 ## SavedVariablesPerCharacter: PeaMacrosDB
