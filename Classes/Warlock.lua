@@ -1,18 +1,18 @@
 function PeaMacros:DefaultMacros_WARLOCK()
 	local macroLib = {
 		[265] = { -- Affliction
-			["PeaMacro06"] = "#showtooltip\n/use [combat]Fel Domination\n/stopcasting [combat]\n/use [mod:CTRL,mod:SHIFT]Summon Succubus;[mod:CTRL]Summon Felhunter;[mod:SHIFT]Summon Voidwalker;Summon Imp",
-			["PeaMacro09"] = "#showtooltip\n",
-			["PeaMacro03"] = "#showtooltip\n/use [mod:shift,@mouseover,harm,nodead][mod:shift]Curse of Exhaustion;[@mouseover,harm,nodead][@focus,harm,nodead][]Unstable Affliction",
-			["PeaMacro12"] = "#showtooltip\n/use [mod:SHIFT]Shadow Bulwark;Unending Resolve",
-			["PeaMacro02"] = "#showtooltip\n/use [mod:CTRL] Eye of Kilrogg;[@mouseover,harm,nodead][@focus,harm,nodead][]Shadow Bolt",
-			["PeaMacro01"] = "#showtooltip\n/cast [mod:CTRL,@focus,harm,nodead][mod:CTRL]Curse of Weakness;[mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Corruption;[@mouseover,harm,nodead][@focus,harm,nodead][]Agony",
-			["PeaMacro11"] = "#showtooltip\n/use [mod:CTRL]Create Healthstone;[mod:SHIFT]Healthstone;[@mouseover,harm,nodead][@focus,harm,nodead][]Drain Life",
+			["PeaMacro01"] = "#showtooltip\n/use [mod:CTRL] Eye of Kilrogg; [mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Corruption;[@mouseover,harm,nodead][@focus,harm,nodead][]Agony",
+			["PeaMacro02"] = "#showtooltip\n/use [@mouseover,harm,nodead][@focus,harm,nodead][]Shadow Bolt",
+			["PeaMacro03"] = "#showtooltip\n/use [mod:CTRL,@focus,harm,nodead][mod:CTRL]Curse of Weakness;[mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Curse of Exhaustion;[@mouseover,harm,nodead][@focus,harm,nodead][]Unstable Affliction",
 			["PeaMacro04"] = "#showtooltip\n/use [mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Seed of Corruption;[@mouseover,harm,nodead][@focus,harm,nodead][]Malefic Rapture",
-			["PeaMacro08"] = "#showtooltip\n",
-			["PeaMacro10"] = "#showtooltip\n",
-			["PeaMacro05"] = "#showtooltip\n",
+			["PeaMacro05"] = "#showtooltip\n/use [mod:SHIFT]Summon Darkglare;Ritual of Doom\n",
+			["PeaMacro06"] = "#showtooltip\n/use [@pet,nodead] Health Funnel",
 			["PeaMacro07"] = "#showtooltip\n/use [mod:ALT]Arcane Pulse;[mod:CTRL,pet:felhunter]Spell Lock;[mod:SHIFT,pet:felhunter,@mouseover,nodead][mod:SHIFT,pet:felhunter]Devour Magic;[@mouseover,harm,nodead][@focus,harm,nodead][]Fear",
+			["PeaMacro08"] = "#showtooltip\n/use [combat]Fel Domination\n/stopcasting [combat]\n/use [mod:ALT]Summon Succubus;[mod:CTRL]Summon Felhunter;[mod:SHIFT]Summon Imp;Summon Voidwalker",
+			["PeaMacro09"] = "#showtooltip\n",
+			["PeaMacro10"] = "#showtooltip\n",
+			["PeaMacro11"] = "#showtooltip\n/use [mod:CTRL]Create Healthstone;[mod:SHIFT]Healthstone;[@mouseover,harm,nodead][@focus,harm,nodead][]Drain Life",
+			["PeaMacro12"] = "#showtooltip\n/use [mod:SHIFT]Shadow Bulwark;Unending Resolve",
 		},
 		[266] = { -- Demonology
       ["PeaMacro01"] = "#showtooltip\n",
