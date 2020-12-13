@@ -1,0 +1,10 @@
+## Interface: 90002
+## Author: Peashooter
+## Version: 1.00
+## Title: Peashooter's Class Macros
+## DefaultState: enabled
+
+## SavedVariablesPerCharacter: PeaMacrosDB
+
+core.lua
+Classes\DeathKnight.lua
