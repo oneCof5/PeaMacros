@@ -147,6 +147,7 @@ function PeaMacros:SwapMacros()
 			else
 				CreateMacro(name, QUESTION_MARK, body, 1)
 				print("Created ", name, " for you!")
+			end
 		end
 
 	end
