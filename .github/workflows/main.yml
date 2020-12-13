@@ -1,0 +1,19 @@
+# David Lynch is a hero
+# https://davidlynch.org/blog/2020/09/world-of-warcraft-addon-packaging-but-with-github-actions-this-time/
+name: Package Addon
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ '*' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Package
+        run: curl -s https://raw.githubusercontent.com/oneCof5/packager/master/release.sh | bash
+        env:
+           CF_API_KEY: ${{ secrets.CF_API_KEY }}
+           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
