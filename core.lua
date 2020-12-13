@@ -6,7 +6,7 @@ local PMF = CreateFrame("Frame", (...), UIParent)
 PMF:RegisterEvent("PLAYER_LOGIN")
 
 PMF:SetScript("OnEvent", function(self, event, ...)
-	print("Responding to ",event)
+--	print("Responding to ",event)
 	PMF[event](self, ...)
 end)
 
@@ -20,7 +20,7 @@ function PMF:PLAYER_LOGIN()
 	-- SpecializationID see the handy list via https://wow.gamepedia.com/SpecializationID
 	SpecID = GetSpecializationInfo(currentSpec)
 	oldSpecID = SpecID
-	print("SpecID=",SpecID," and oldSpecID=",oldSpecID)
+--	print("SpecID=",SpecID," and oldSpecID=",oldSpecID)
 
 	-- Get saved variables
 	PeaMacros:SetDefaults()
@@ -38,7 +38,7 @@ function PMF:PLAYER_SPECIALIZATION_CHANGED()
 
 	currentSpec = GetSpecialization()
 	SpecID = GetSpecializationInfo(currentSpec)
-	print("SpecID=",SpecID," and oldSpecID=",oldSpecID)
+--	print("SpecID=",SpecID," and oldSpecID=",oldSpecID)
 	if SpecID ~= oldSpecID then
 		PeaMacros:SwapMacros() -- new spec, reload
 	end

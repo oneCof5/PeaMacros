@@ -10,9 +10,9 @@ function PeaMacros:DefaultMacros_DEMONHUNTER()
       ["PeaMacro07"] = "#showtooltip\n",
       ["PeaMacro08"] = "#showtooltip\n",
       ["PeaMacro09"] = "#showtooltip\n",
-      ["PeaMacro010"] = "#showtooltip\n",
-      ["PeaMacro011"] = "#showtooltip\n",
-      ["PeaMacro012"] = "#showtooltip\n",
+      ["PeaMacro10"] = "#showtooltip\n",
+      ["PeaMacro11"] = "#showtooltip\n",
+      ["PeaMacro12"] = "#showtooltip\n",
 		},
 		[581] = { -- Vengeance
       ["PeaMacro01"] = "#showtooltip\n",
@@ -24,9 +24,9 @@ function PeaMacros:DefaultMacros_DEMONHUNTER()
       ["PeaMacro07"] = "#showtooltip\n",
       ["PeaMacro08"] = "#showtooltip\n",
       ["PeaMacro09"] = "#showtooltip\n",
-      ["PeaMacro010"] = "#showtooltip\n",
-      ["PeaMacro011"] = "#showtooltip\n",
-      ["PeaMacro012"] = "#showtooltip\n",
+      ["PeaMacro10"] = "#showtooltip\n",
+      ["PeaMacro11"] = "#showtooltip\n",
+      ["PeaMacro12"] = "#showtooltip\n",
 		},
 		[1456] = { -- Unassigned
 			["PeaMacro01"] = "#showtooltip\n",
@@ -38,9 +38,9 @@ function PeaMacros:DefaultMacros_DEMONHUNTER()
 			["PeaMacro07"] = "#showtooltip\n",
 			["PeaMacro08"] = "#showtooltip\n",
 			["PeaMacro09"] = "#showtooltip\n",
-			["PeaMacro010"] = "#showtooltip\n",
-			["PeaMacro011"] = "#showtooltip\n",
-			["PeaMacro012"] = "#showtooltip\n",
+			["PeaMacro10"] = "#showtooltip\n",
+			["PeaMacro11"] = "#showtooltip\n",
+			["PeaMacro12"] = "#showtooltip\n",
 		},
 	}
 	return macroLib
