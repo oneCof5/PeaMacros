@@ -7,4 +7,4 @@
 ## SavedVariablesPerCharacter: PeaMacrosDB
 
 core.lua
-Classes\DeathKnight.lua
+Classes\load_classes.xml
