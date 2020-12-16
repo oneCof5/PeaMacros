@@ -159,5 +159,12 @@ function PeaMacros:SwapMacros()
 
 end
 
--- Add SLASH COMMAND to reset to defaults
--- TO DO
+SlashCmdList["PEAMACROS"] = function(arg)
+	if arg == "reset" then
+		PeaMacros:SetDefaults()
+		PeaMacros:SwapMacros()
+	else
+		print("To reset macros, you must enter '/pmac reset'. ")
+	end
+end
+SLASH_PEAMACROS1 = "/pmac"
