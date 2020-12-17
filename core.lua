@@ -30,6 +30,8 @@ function PeaMacros:SetDefaults()
 	if not PeaMacrosDB then
 		PeaMacrosDB = {} -- establish empty table
 
+		PeaMacrosDB.InstallFlag = 0
+
 		-- Build the starter macro bodies
 		if (class == "WARRIOR") then
 			PeaMacrosDB.ClassMacros = self:DefaultMacros_WARRIOR()
@@ -145,6 +147,13 @@ function PeaMacros:PLAYER_LOGIN()
 	-- Get saved variables
 	PeaMacros:SetDefaults()
 
+	-- First time here?
+	if PeaMacrosDB.InstallFlag == 0 then
+		PeaMacros:PeaPrint("Welcome! Creating initial class/spec macros.")
+		PeaMacros:SwapMacros()
+		PeaMacrosDB.InstallFlag = 1
+	end
+
 	-- start watching for changes to specialization
 	PeaMacros:RegisterUnitEvent("PLAYER_SPECIALIZATION_CHANGED", "player")
 
@@ -152,9 +161,7 @@ function PeaMacros:PLAYER_LOGIN()
 	PeaMacros:UnregisterEvent("PLAYER_LOGIN")
 end
 
---[[
-SLASH COMMAND SECTION
-]]
+--SLASH COMMAND SECTION
 SlashCmdList["PEAMACROS"] = function(arg)
 	if arg == "reset" then
 		PeaMacros:SetDefaults()
