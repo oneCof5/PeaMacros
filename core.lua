@@ -99,7 +99,7 @@ function PeaMacros:SwapMacros()
 		else -- macro not found, so create it if there's room
 			local _, numMacs = GetNumMacros()
 			if numMacs >= 17 then
-				PeaMacros:PeaPrint("You've got too many character macros, chief.")
+				PeaMacros:PeaPrint("Negative, Ghostrider, the pattern is full.\nCan't create any more character macros.")
 				do return end
 			else
 				CreateMacro(name, QUESTION_MARK, body, 1)
