@@ -37,10 +37,10 @@ function PeaMacros:DefaultMacros_DEATHKNIGHT()
 			["PeaMacro06"] = "#showtooltip\n/cast [mod:SHIFT]Raise Dead;[talent:7/3,@mousover,harm,nodead][talent:7/3,@focus,harm,nodead][talent:7/3]Unholy Assault;[talent:7/2]Summon Gargoyle\n/use 13\n/use 14",
 			["PeaMacro07"] = "#showtooltip\n/use [mod:CTRL,@pet]Leap;[mod:SHIFT,talent:3/3,@mouseover,harm,nodead][mod:SHIFT,talent:3/3,@focus,harm,nodead][mod:SHIFT,talent:3/3]Asphyxiate;[@mousover,harm,nodead][@focus,harm,nodead][]Mind Freeze",
 			["PeaMacro08"] = "#showtooltip\n/use [mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Death Grip;[notalent:4/3]Death and Decay\n/stopmacro [notalent:4/3]\n/use [@focus,harm,nodead][@target]Soul Reaper",
-			["PeaMacro09"] = "#showtooltip\n/use [mod:SHIFT,@mouseover,harm,nodead][mod:SHIFT]Death Grip;Dark Command",
-			["PeaMacro10"] = "#showtooltip\n/use [mod:CTRL,talent:5/3]Wraith Walk;[mod:SHIFT]Death's Advance;Bull Rush(Racial)",
+			["PeaMacro09"] = "#showtooltip\n/use [mod:SHIFT]Fleshcraft;Abomination Limb",
+			["PeaMacro10"] = "#showtooltip\n/use [talent:5/3,mod:ALT]Wraith Walk;[mod:CTRL]Path of Frost;[mod:SHIFT]Death's Advance;Bull Rush",
 			["PeaMacro11"] = "#showtooltip\n/use [mod:CTRL,talent:5/3]Death Pact;[mod:SHIFT,mod:ALT][mod:SHIFT,@player]Anti-Magic Zone;Anti-Magic Shell",
-			["PeaMacro12"] = "#showtooltip\n/use [mod:SHIFT]Lichborne;Icebound Fortitude",
+			["PeaMacro12"] = "#showtooltip\n/use [mod:SHIFT]Lichborne;Icebound Fortitude\n/use Huddle",
 		},
 		[1455] = { -- Unassigned
 			["PeaMacro01"] = "#showtooltip\n",
