@@ -1,8 +1,7 @@
 ## Interface: 90002
 ## Author: Peashooter
 ## Version: 1.00
-## Title: Peashooter's Class Macros
-
+## Title: |cffff00ffPeashooter's| Class Macros
 
 ## X-Category: Class
 ## X-License: MIT License
@@ -13,4 +12,4 @@
 ## SavedVariablesPerCharacter: PeaMacrosDB
 
 core.lua
-Classes\load_classes.xml
+classes\load_classes.xml
