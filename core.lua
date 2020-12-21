@@ -144,11 +144,8 @@ function PeaMacros:PLAYER_LOGIN()
 	PeaMacros:UpdatePlayerSpecInfo()
 	oldSpecID = SpecID -- save for later
 
-	-- Get saved variables
-	PeaMacros:SetDefaults()
-
 	-- First time here?
-	if PeaMacrosDB.InstallFlag == 0 then
+	if not PeaMacrosDB.InstallFlag or PeaMacrosDB == 0 then
 		PeaMacros:PeaPrint("Welcome! Creating initial class/spec macros.")
 		PeaMacros:SwapMacros()
 		PeaMacrosDB.InstallFlag = 1
