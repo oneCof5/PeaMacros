@@ -26,6 +26,7 @@ With having three versions of 12 actions, now we can tailor a macro library for 
 
 ### v1.00.003
 1. Hunter default macros for Beast Master, Marksmanship and Survival
+2. Fixed an issue with reset to defaults not fully resetting to defaults.
 
 ### v1.00.002
 1. Added integration to CurseForge
