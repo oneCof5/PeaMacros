@@ -24,10 +24,10 @@ function PeaMacros:UpdatePlayerSpecInfo()
 
 end
 
-function PeaMacros:SetDefaults()
+function PeaMacros:SetDefaults(reset)
 
 	-- PeaMacrosDB is our per-character saved variable
-	if not PeaMacrosDB then
+	if not PeaMacrosDB or reset then
 		PeaMacrosDB = {} -- establish empty table
 
 		PeaMacrosDB.InstallFlag = 0
@@ -161,7 +161,7 @@ end
 --SLASH COMMAND SECTION
 SlashCmdList["PEAMACROS"] = function(arg)
 	if arg == "reset" then
-		PeaMacros:SetDefaults()
+		PeaMacros:SetDefaults(true)
 		PeaMacros:SwapMacros()
 	else
 		PeaMacros:PeaPrint("To reset macros, you must enter '/pmac reset'. ")
