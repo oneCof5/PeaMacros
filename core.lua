@@ -1,5 +1,3 @@
-local twipe = table.wipe
-
 local PeaMacros = CreateFrame("Frame", (...), UIParent)
 PeaMacros:RegisterEvent("PLAYER_LOGIN")
 
@@ -31,10 +29,10 @@ function PeaMacros:SetDefaults(reset)
 	-- PeaMacrosDB is our per-character saved variable
 	if not PeaMacrosDB or reset then
 
-		If PeaMacrosDB and reset then
-			twipe(PeaMacrosDB) -- on a reset wipe the existing table
-		else
+		if not PeaMacrosDB then
 			PeaMacrosDB = {} -- establish empty table
+		else
+			table.wipe(PeaMacrosDB) -- on a reset wipe the existing table
 		end
 
 		PeaMacrosDB.InstallFlag = 0
@@ -151,8 +149,10 @@ function PeaMacros:PLAYER_LOGIN()
 	PeaMacros:UpdatePlayerSpecInfo()
 	oldSpecID = SpecID -- save for later
 
+	PeaMacros:SetDefaults()
+
 	-- First time here?
-	if not PeaMacrosDB.InstallFlag then
+	if PeaMacrosDB.InstallFlag == 0 then
 		PeaMacros:PeaPrint("Welcome! Creating initial class/spec macros.")
 		PeaMacros:SwapMacros()
 		PeaMacrosDB.InstallFlag = 1
