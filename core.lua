@@ -25,11 +25,16 @@ function PeaMacros:UpdatePlayerSpecInfo()
 end
 
 -- set defaults
-function PeaMacros:SetDefaults()
+function PeaMacros:SetDefaults(reset)
 
 	-- PeaMacrosDB is our per-character saved variable
-	if not PeaMacrosDB then
-		PeaMacrosDB = {} -- establish empty table
+	if not PeaMacrosDB or reset then
+
+		if not PeaMacrosDB then
+			PeaMacrosDB = {} -- establish empty table
+		else
+			table.wipe(PeaMacrosDB) -- on a reset wipe the existing table
+		end
 
 		PeaMacrosDB.InstallFlag = 0
 
@@ -102,11 +107,11 @@ function PeaMacros:SwapMacros()
 		else -- macro not found, so create it if there's room
 			local _, numMacs = GetNumMacros()
 			if numMacs >= 17 then
-				self:Print("Negative, Ghostrider, the pattern is full.\nCan't create any more character macros.")
+				self:Print("Negative, Ghostrider, the pattern is full.\nBad Top Gun references aside, we can't create any more character macros because you have too many.")
 				do return end
 			else
 				CreateMacro(name, QUESTION_MARK, body, 1)
-				self:Print("Created ", name, " for you!")
+				self:Print("created ", name, " for you!")
 			end
 		end
 
@@ -180,7 +185,7 @@ end
 function PeaMacros:PLAYER_SPECIALIZATION_CHANGED()
 	-- this fires on a talent change or a specialization change
 
-	PeaMacros:UpdatePlayerSpecInfo()
+	self:UpdatePlayerSpecInfo()
 
 	if SpecID ~= oldSpecID then
 		self:SwapMacros() -- new spec, reload
@@ -198,7 +203,7 @@ function PeaMacros:PLAYER_LOGIN()
 	oldSpecID = SpecID -- save for later
 
 	-- Get saved variables
-	PeaMacros:SetDefaults()
+	self:SetDefaults()
 
 	-- First time here?
 	if PeaMacrosDB.InstallFlag == 0 then
@@ -208,16 +213,16 @@ function PeaMacros:PLAYER_LOGIN()
 	end
 
 	-- start watching for changes to specialization
-	PeaMacros:RegisterUnitEvent("PLAYER_SPECIALIZATION_CHANGED", "player")
+	self:RegisterUnitEvent("PLAYER_SPECIALIZATION_CHANGED", "player")
 
 	-- clean up unnecessary watch
-	PeaMacros:UnregisterEvent("PLAYER_LOGIN")
+	self:UnregisterEvent("PLAYER_LOGIN")
 end
 
 --SLASH COMMAND SECTION
 SlashCmdList["PEAMACROS"] = function(arg)
 	if arg == "reset" then
-		PeaMacros:SetDefaults()
+		PeaMacros:SetDefaults(true)
 		PeaMacros:SwapMacros()
 	elseif arg == "actionbar" then
 		PeaMacros:PopulateActionBar()
