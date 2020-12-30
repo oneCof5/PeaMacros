@@ -24,6 +24,14 @@ With having three versions of 12 actions, now we can tailor a macro library for 
 
 ## CHANGELOG
 
+### v1.00.005
+1. Added slash command support for wiping the main action bar (Action Bar #1) and automagically adding our 12 macros as buttons on that bar.
+2. Fixed some logic with creating defaults for a brand new user prior to swapping talents.
+3. Some initial hunter default macros based upon a limited experiment of my play time.
+
+### v1.00.004
+1. Same as v1.00.003 but fixed git deployment and included the right things at the right times.
+
 ### v1.00.003
 1. Hunter default macros for Beast Master, Marksmanship and Survival
 2. Fixed an issue with reset to defaults not fully resetting to defaults.
