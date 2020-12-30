@@ -12,8 +12,8 @@ local QUESTION_MARK = "INV_Misc_QuestionMark"
 -- HELPER FUNCTIONS SECTION
 
 -- Print Function
-function PeaMacros:PeaPrint(msg)
-	print("|cffff00ffPeaMacros|r: " .. msg)
+function PeaMacros:Print(msg)
+	print("|cff7cfc00Pea|r|cffa9a9a9Macros|r: " .. msg)
 end
 
 -- update our spec info
@@ -24,6 +24,7 @@ function PeaMacros:UpdatePlayerSpecInfo()
 
 end
 
+-- set defaults
 function PeaMacros:SetDefaults(reset)
 
 	-- PeaMacrosDB is our per-character saved variable
@@ -106,11 +107,11 @@ function PeaMacros:SwapMacros()
 		else -- macro not found, so create it if there's room
 			local _, numMacs = GetNumMacros()
 			if numMacs >= 17 then
-				PeaMacros:PeaPrint("Negative, Ghostrider, the pattern is full.\nCan't create any more character macros.")
+				self:Print("Negative, Ghostrider, the pattern is full.\nBad Top Gun references aside, we can't create any more character macros because you have too many.")
 				do return end
 			else
 				CreateMacro(name, QUESTION_MARK, body, 1)
-				PeaMacros:PeaPrint("Created ", name, " for you!")
+				self:Print("created ", name, " for you!")
 			end
 		end
 
@@ -128,14 +129,66 @@ function PeaMacros:SwapMacros()
 
 end
 
+-- Clear Action Bar
+function PeaMacros:ClearActionBar()
+  for i=1,12 do
+		if HasAction(i) then
+    	PickupAction(i)
+    	ClearCursor()
+		end
+  end
+end
+
+-- Populate ActionBar 1 with the current PeaMacros library items
+function PeaMacros:PopulateActionBar()
+	local t = PeaMacrosDB.ClassMacros[SpecID]
+  for k,v in PeaMacros:SortTableByString(t) do
+		local mi = GetMacroIndexByName(k)
+		if mi ~= 0 then
+			local aidx = tonumber(string.sub(k,9))
+			if HasAction(aidx) then
+	    	PickupAction(aidx)
+	    	ClearCursor()
+			end
+	  	PickupMacro(mi)
+			C_ActionBar.PutActionInSlot(aidx)
+		end
+  end
+end
+
+-- function to sort a string key table https://stackoverflow.com/questions/15706270/sort-a-table-in-lua
+function PeaMacros:SortTableByString(t, order)
+  -- collect the keys
+  local keys = {}
+  for k in pairs(t) do keys[#keys+1] = k end
+
+  -- if order function given, sort by it by passing the table and keys a, b,
+  -- otherwise just sort the keys
+  if order then
+    table.sort(keys, function(a,b) return order(t, a, b) end)
+  else
+    table.sort(keys)
+  end
+
+  -- return the iterator function
+  local i = 0
+  return function()
+    i = i + 1
+    if keys[i] then
+      return keys[i], t[keys[i]]
+    end
+  end
+end
+
+
 -- ON EVENT SECTION
 function PeaMacros:PLAYER_SPECIALIZATION_CHANGED()
 	-- this fires on a talent change or a specialization change
 
-	PeaMacros:UpdatePlayerSpecInfo()
+	self:UpdatePlayerSpecInfo()
 
 	if SpecID ~= oldSpecID then
-		PeaMacros:SwapMacros() -- new spec, reload
+		self:SwapMacros() -- new spec, reload
 		oldSpecID = SpecID -- save for later
 	end
 
@@ -146,23 +199,24 @@ function PeaMacros:PLAYER_LOGIN()
 
 	-- Get the current character class and specialization
 	class = select(2,UnitClass("player"))
-	PeaMacros:UpdatePlayerSpecInfo()
+	self:UpdatePlayerSpecInfo()
 	oldSpecID = SpecID -- save for later
 
-	PeaMacros:SetDefaults()
+	-- Get saved variables
+	self:SetDefaults()
 
 	-- First time here?
 	if PeaMacrosDB.InstallFlag == 0 then
-		PeaMacros:PeaPrint("Welcome! Creating initial class/spec macros.")
-		PeaMacros:SwapMacros()
+		self:Print("Welcome! Creating initial class/spec macros.")
+		self:SwapMacros()
 		PeaMacrosDB.InstallFlag = 1
 	end
 
 	-- start watching for changes to specialization
-	PeaMacros:RegisterUnitEvent("PLAYER_SPECIALIZATION_CHANGED", "player")
+	self:RegisterUnitEvent("PLAYER_SPECIALIZATION_CHANGED", "player")
 
 	-- clean up unnecessary watch
-	PeaMacros:UnregisterEvent("PLAYER_LOGIN")
+	self:UnregisterEvent("PLAYER_LOGIN")
 end
 
 --SLASH COMMAND SECTION
@@ -170,8 +224,10 @@ SlashCmdList["PEAMACROS"] = function(arg)
 	if arg == "reset" then
 		PeaMacros:SetDefaults(true)
 		PeaMacros:SwapMacros()
+	elseif arg == "actionbar" then
+		PeaMacros:PopulateActionBar()
 	else
-		PeaMacros:PeaPrint("To reset macros, you must enter '/pmac reset'. ")
+		PeaMacros:Print("Supported parameters with /pmac are:\nreset | To rebuild the class macros from defaults.\nactionbar | To populate ActionBar 1 with the current macro library (macro 1 to action bar slot 1).")
 	end
 end
 SLASH_PEAMACROS1 = "/pmac"

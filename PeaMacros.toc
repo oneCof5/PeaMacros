@@ -1,7 +1,7 @@
 ## Interface: 90002
 ## Author: Peashooter
 ## Version: 1.001
-## Title: |cff7cfc00Pea|rMacros
+## Title: |cff7cfc00Pea|r|cffa9a9a9Macros|r
 
 ## X-Category: Class
 ## X-License: MIT License
